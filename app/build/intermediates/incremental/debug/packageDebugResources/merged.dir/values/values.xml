@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="color" name="kAccent"/>
+    <attr format="color" name="kAccentDeep"/>
+    <attr format="color" name="kAccentStroke"/>
+    <attr format="color" name="kAccentText"/>
+    <attr format="color" name="kAccentTrans"/>
+    <attr format="color" name="kCreateA"/>
+    <attr format="color" name="kCreateB"/>
+    <attr format="color" name="kTitlePill"/>
+    <attr format="color" name="kUndoOff"/>
+    <attr format="color" name="kUndoOn"/>
+    <color name="accent_blue">#8FD3FF</color>
+    <color name="accent_blue_deep">#4DB4F0</color>
+    <color name="accent_blue_soft">#CFEBFF</color>
+    <color name="accent_pink">#FFC0CB</color>
+    <color name="accent_pink_deep">#EE9BB5</color>
+    <color name="accent_pink_soft">#F8D3E0</color>
+    <color name="accent_yellow">#F9B305</color>
+    <color name="banner_blue">#E2ECF7</color>
+    <color name="banner_cream">#FBEEDA</color>
+    <color name="bg_app">#F6F1E9</color>
+    <color name="bg_card_dark">#FFFFFF</color>
+    <color name="bg_menu_dark">#FFFFFF</color>
+    <color name="bg_nav">#FBF7EF</color>
+    <color name="bg_rail">#FBF7EF</color>
+    <color name="divider_dark">#E3DDD2</color>
+    <color name="editor_bg">#EFEEEA</color>
+    <color name="paper">#FFFFFF</color>
+    <color name="paper_line">#DCDCDC</color>
+    <color name="paper_margin">#E2C9C2</color>
+    <color name="text_chip">#3A3540</color>
+    <color name="text_dim">#8A8378</color>
+    <color name="text_primary">#2A2630</color>
+    <string name="all_diaries">Todos los diarios</string>
+    <string name="app_name">KNotes</string>
+    <string name="banner1">¡Explora ahora para inspirarte!</string>
+    <string name="banner2">Mejora tu journaling con nuestros tutoriales</string>
+    <string name="create_diary">Nuevo Diario</string>
+    <string name="discover">Descubrir</string>
+    <string name="market">Mercado</string>
+    <string name="save">guardar</string>
+    <string name="search_hint">Buscar diarios o etiquetas</string>
+    <string name="usarlo">Usarlo</string>
+    <string name="ver_todo">ver todo</string>
+    <string name="widget_desc">Abre tus diarios de KNotes con un toque</string>
+    <style name="FeedTab" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="NavItem" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="NavPill" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/bg_card_dark</item>
+    </style>
+    <style name="Overlay.KNotes" parent=""/>
+    <style name="Overlay.KNotes.Man" parent="Overlay.KNotes">
+        <item name="kAccent">#8FD3FF</item>
+        <item name="kAccentDeep">#4DB4F0</item>
+        <item name="kAccentTrans">#998FD3FF</item>
+        <item name="kAccentStroke">#A9D6F0</item>
+        <item name="kUndoOn">#9ED8FF</item>
+        <item name="kUndoOff">#E3F4FF</item>
+        <item name="kTitlePill">#9ED8FF</item>
+        <item name="kAccentText">#DDF1FF</item>
+        <item name="kCreateA">#9CCDE8</item>
+        <item name="kCreateB">#C4E4F7</item>
+        <item name="android:colorEdgeEffect">@color/accent_blue</item>
+    </style>
+    <style name="Theme.KNotes" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/bg_app</item>
+        <item name="android:statusBarColor">@color/bg_app</item>
+        <item name="android:navigationBarColor">@color/bg_nav</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorEdgeEffect">?attr/kAccent</item>
+        <item name="kAccent">#FFC0CB</item>
+        <item name="kAccentDeep">#FFA6BC</item>
+        <item name="kAccentTrans">#99FFC0CB</item>
+        <item name="kAccentStroke">#E9B5C0</item>
+        <item name="kUndoOn">#FBBFCB</item>
+        <item name="kUndoOff">#FDE9EB</item>
+        <item name="kTitlePill">#FFBFCB</item>
+        <item name="kAccentText">#F4DADF</item>
+        <item name="kCreateA">#E8A9B8</item>
+        <item name="kCreateB">#F4C4CF</item>
+    </style>
+    <style name="Theme.KNotes.Editor" parent="Theme.KNotes">
+        <item name="android:windowBackground">@color/editor_bg</item>
+        <item name="android:statusBarColor">@color/editor_bg</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <style name="Theme.KNotes.LightDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">?attr/kAccentDeep</item>
+        <item name="colorAccent">?attr/kAccentDeep</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_cream</item>
+        <item name="android:textColorPrimary">#2B2630</item>
+        <item name="android:textColorSecondary">#5F5A52</item>
+        <item name="textColorAlertDialogListItem">#2B2630</item>
+    </style>
+</resources>

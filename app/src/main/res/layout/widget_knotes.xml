@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg_widget"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/widget_icon"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:src="@mipmap/ic_launcher_bw"
+        android:contentDescription="KNotes" />
+
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KNotes"
+        android:textColor="#2B2B2B"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tocar → mis diarios 📔"
+        android:textColor="#8A8378"
+        android:textSize="10sp" />
+</LinearLayout>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Cabecera: título CENTRADO · regalo · lupa · ⋮ a la derecha (captura) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+
+            <TextView
+                android:id="@+id/home_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="120dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/all_diaries"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingEnd="12dp">
+
+                <ImageButton
+                    android:id="@+id/btn_gift"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_circle_gift"
+                    android:contentDescription="Sorpresas"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_gift_color" />
+
+                <ImageButton
+                    android:id="@+id/btn_search"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@null"
+                    android:contentDescription="Buscar"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/text_primary" />
+
+                <ImageButton
+                    android:id="@+id/btn_more"
+                    android:layout_width="36dp"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:contentDescription="Más"
+                    android:src="@drawable/ic_more"
+                    app:tint="@color/text_primary" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Anuncio PEQUEÑO de actualización (solo con versión nueva) -->
+        <LinearLayout
+            android:id="@+id/banner_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/bg_banner_blue"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="7dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/banner_update_msg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="🔔 Nueva versión disponible"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/banner_update_go"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bg_chip_blue"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="5dp"
+                android:text="Ir"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Filtros (chips) + botón carpeta con estrella -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp">
+
+            <HorizontalScrollView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/chips_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <ImageButton
+                android:id="@+id/btn_folders"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_circle_folder"
+                android:contentDescription="Etiquetas"
+                android:padding="7dp"
+                android:src="@drawable/ic_folder_star" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_grid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingHorizontal="12dp" />
+
+        <!-- Barra de SELECCIÓN MÚLTIPLE (mantener pulsado un diario) -->
+        <LinearLayout
+            android:id="@+id/sel_bar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_card_soft"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            android:visibility="gone">
+
+            <ImageButton
+                android:id="@+id/ib_sel_close"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@null"
+                android:src="@drawable/ic_close"
+                app:tint="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tv_sel_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:text="0 seleccionados"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp" />
+
+            <ImageButton
+                android:id="@+id/ib_sel_delete"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_circle_white"
+                android:src="@drawable/ic_trash"
+                app:tint="#E8494E" />
+
+            <ImageButton
+                android:id="@+id/ib_sel_move"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_circle_white"
+                android:src="@drawable/ic_pages"
+                app:tint="#3A3540" />
+
+            <ImageButton
+                android:id="@+id/ib_sel_share"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_circle_white"
+                android:src="@drawable/ic_share"
+                app:tint="#3A3540" />
+
+            <ImageButton
+                android:id="@+id/ib_sel_info"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_circle_white"
+                android:src="@drawable/ic_info"
+                app:tint="#3A3540" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón flotante «+»: círculo rosa con cruz oscura -->
+    <ImageButton
+        android:id="@+id/fab_new"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_circle_pink"
+        android:contentDescription="Nuevo diario"
+        android:elevation="8dp"
+        android:src="@drawable/ic_add"
+        app:tint="#1A1A1A" />
+</FrameLayout>

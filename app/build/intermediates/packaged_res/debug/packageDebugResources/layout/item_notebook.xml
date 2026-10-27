@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="6dp"
+    android:paddingVertical="8dp">
+
+    <com.knotes.app.ui.AspectFrameLayout
+        android:id="@+id/cover_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.knotes.app.ui.NotebookCoverView
+            android:id="@+id/cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- corazón: contorno sobre círculo translúcido -->
+        <ImageButton
+            android:id="@+id/btn_favorite"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="top|start"
+            android:layout_margin="7dp"
+            android:background="@drawable/bg_circle_glass"
+            android:padding="5dp"
+            android:src="@drawable/ic_heart"
+            app:tint="#E8707F" />
+
+        <!-- menú ▾ abajo a la derecha -->
+        <ImageButton
+            android:id="@+id/btn_menu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="7dp"
+            android:background="@drawable/bg_circle_white_solid"
+            android:padding="3dp"
+            android:src="@drawable/ic_chevron_down"
+            app:tint="#2A2A2A" />
+
+        <!-- insignia de selección múltiple (✓) -->
+        <TextView
+            android:id="@+id/badge_sel"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="7dp"
+            android:background="@drawable/bg_circle_white"
+            android:gravity="center"
+            android:textColor="#3A3540"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </com.knotes.app.ui.AspectFrameLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:paddingHorizontal="2dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/text_primary"
+        android:textSize="13sp" />
+
+    <!-- la fecha de creación se ve en «Información» (selección múltiple) -->
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/text_dim"
+        android:textSize="10sp"
+        android:visibility="gone" />
+</LinearLayout>

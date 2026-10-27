@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- solo para el buscador de actualizaciones (GIST/APK); la app funciona sin internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Escanear con la cámara del sistema (KNotes no la usa directamente,
+         la delega a la app de cámara → no requiere permission.CAMERA) -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <application
+        android:name=".KNotesApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher_bw"
+        android:roundIcon="@mipmap/ic_launcher_bw"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KNotes">
+
+        <!-- Ícono del lanzador: BLANCO Y NEGRO por defecto (sin elegir sexo) —
+             al definir el sexo, Gender.syncLauncher lo cambia a rosa o celeste -->
+        <activity-alias
+            android:name=".NeutralLauncher"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_bw"
+            android:roundIcon="@mipmap/ic_launcher_bw"
+            android:targetActivity=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Ícono del lanzador: mujer (cuaderno rosa) — Managed por Gender.syncLauncher -->
+        <activity-alias
+            android:name=".WomanLauncher"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_w"
+            android:roundIcon="@mipmap/ic_launcher_w"
+            android:targetActivity=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Ícono del lanzador: hombre (cuaderno negro con azul) -->
+        <activity-alias
+            android:name=".ManLauncher"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_m"
+            android:roundIcon="@mipmap/ic_launcher_m"
+            android:targetActivity=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".CreateDiaryActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".EditorActivity"
+            android:exported="false"
+            android:screenOrientation="userPortrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Widget del escritorio (menú ⋮ → Añadir widget explica cómo ponerlo) -->
+        <receiver
+            android:name=".KNotesWidgetProvider"
+            android:exported="false"
+            android:label="KNotes">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+        <!-- Compartir diarios (pdf/png/jpg/txt) desde la caché de la app -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.files"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+</manifest>

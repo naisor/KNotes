@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.KNotes" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/bg_app</item>
+        <item name="android:statusBarColor">@color/bg_app</item>
+        <item name="android:navigationBarColor">@color/bg_nav</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorEdgeEffect">?attr/kAccent</item>
+        <item name="kAccent">#FFC0CB</item>
+        <item name="kAccentDeep">#FFA6BC</item>
+        <item name="kAccentTrans">#99FFC0CB</item>
+        <item name="kAccentStroke">#E9B5C0</item>
+        <item name="kUndoOn">#FBBFCB</item>
+        <item name="kUndoOff">#FDE9EB</item>
+        <item name="kTitlePill">#FFBFCB</item>
+        <item name="kAccentText">#F4DADF</item>
+        <item name="kCreateA">#E8A9B8</item>
+        <item name="kCreateB">#F4C4CF</item>
+    </style>
+
+    <style name="Theme.KNotes.Editor" parent="Theme.KNotes">
+        <item name="android:windowBackground">@color/editor_bg</item>
+        <item name="android:statusBarColor">@color/editor_bg</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- Diálogos SIEMPRE claros: texto FIJO oscuro (antes en modo oscuro salía blanco incómodo) -->
+    <style name="Theme.KNotes.LightDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">?attr/kAccentDeep</item>
+        <item name="colorAccent">?attr/kAccentDeep</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_cream</item>
+        <item name="android:textColorPrimary">#2B2630</item>
+        <item name="android:textColorSecondary">#5F5A52</item>
+        <item name="textColorAlertDialogListItem">#2B2630</item>
+    </style>
+
+    <!-- MODO HOMBRE: se aplica ENCIMA del tema → todo el acento pasa de rosa a CELESTE -->
+    <style name="Overlay.KNotes" parent="" />
+
+    <style name="Overlay.KNotes.Man" parent="Overlay.KNotes">
+        <item name="kAccent">#8FD3FF</item>
+        <item name="kAccentDeep">#4DB4F0</item>
+        <item name="kAccentTrans">#998FD3FF</item>
+        <item name="kAccentStroke">#A9D6F0</item>
+        <item name="kUndoOn">#9ED8FF</item>
+        <item name="kUndoOff">#E3F4FF</item>
+        <item name="kTitlePill">#9ED8FF</item>
+        <item name="kAccentText">#DDF1FF</item>
+        <item name="kCreateA">#9CCDE8</item>
+        <item name="kCreateB">#C4E4F7</item>
+        <item name="android:colorEdgeEffect">@color/accent_blue</item>
+    </style>
+</resources>

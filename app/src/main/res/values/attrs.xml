@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="kAccent" format="color" />
+    <attr name="kAccentDeep" format="color" />
+    <attr name="kAccentTrans" format="color" />
+    <attr name="kAccentStroke" format="color" />
+    <attr name="kUndoOn" format="color" />
+    <attr name="kUndoOff" format="color" />
+    <attr name="kTitlePill" format="color" />
+    <attr name="kAccentText" format="color" />
+    <attr name="kCreateA" format="color" />
+    <attr name="kCreateB" format="color" />
+</resources>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/bg_app">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <!-- RAÍL: cuaderno · brújula · tienda · — · ayuda · papelera (como la captura) -->
+            <LinearLayout
+                android:id="@+id/rail"
+                android:layout_width="62dp"
+                android:layout_height="match_parent"
+                android:background="@color/bg_rail"
+                android:gravity="top|center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="12dp">
+
+                <ImageButton
+                    android:id="@+id/rail_notes"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_circle_pink"
+                    android:contentDescription="Diarios"
+                    android:src="@drawable/ic_rail_journal" />
+
+                <Space android:layout_width="match_parent" android:layout_height="22dp" />
+
+                <ImageButton
+                    android:id="@+id/rail_compass"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@null"
+                    android:contentDescription="Descubrir"
+                    android:src="@drawable/ic_o_compass"
+                    app:tint="@color/text_chip" />
+
+                <Space android:layout_width="match_parent" android:layout_height="24dp" />
+
+                <ImageButton
+                    android:id="@+id/rail_store"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@null"
+                    android:contentDescription="Respaldo"
+                    android:src="@drawable/ic_o_store"
+                    app:tint="@color/text_chip" />
+
+                <Space android:layout_width="match_parent" android:layout_height="22dp" />
+
+                <View
+                    android:layout_width="34dp"
+                    android:layout_height="1dp"
+                    android:background="@color/divider_dark" />
+
+                <Space android:layout_width="match_parent" android:layout_height="22dp" />
+
+                <ImageButton
+                    android:id="@+id/rail_help"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@null"
+                    android:contentDescription="Ayuda"
+                    android:src="@drawable/ic_o_help"
+                    app:tint="@color/text_chip" />
+
+                <Space android:layout_width="match_parent" android:layout_height="26dp" />
+
+                <ImageButton
+                    android:id="@+id/rail_trash"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@null"
+                    android:contentDescription="Papelera"
+                    android:src="@drawable/ic_o_trash"
+                    app:tint="@color/text_chip" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/content_host"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- BARRA INFERIOR: 5 iconos sin texto, el activo en círculo rosa -->
+        <LinearLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="@drawable/bg_nav_bar"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/nav_journals"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:contentDescription="Diarios"
+                    android:src="@drawable/ic_o_journal" />
+            </FrameLayout>
+
+            <FrameLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/nav_calendar"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:contentDescription="Calendario"
+                    android:src="@drawable/ic_o_calendar" />
+            </FrameLayout>
+
+            <FrameLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/nav_tasks"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:contentDescription="Tareas"
+                    android:src="@drawable/ic_o_edit" />
+            </FrameLayout>
+
+            <FrameLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/nav_market"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:contentDescription="Mercado"
+                    android:src="@drawable/ic_o_store" />
+            </FrameLayout>
+
+            <FrameLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/nav_settings"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:contentDescription="Ajustes"
+                    android:src="@drawable/ic_o_gear" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Lápiz flotante en el borde izquierdo (como en las capturas): abre tu último diario -->
+    <ImageButton
+        android:id="@+id/float_pen_main"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start|bottom"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="-24dp"
+        android:background="@drawable/bg_float_pen"
+        android:contentDescription="Abrir último diario"
+        android:paddingStart="20dp"
+        android:src="@drawable/ic_float_pen_gray"
+        android:elevation="6dp" />
+</FrameLayout>
