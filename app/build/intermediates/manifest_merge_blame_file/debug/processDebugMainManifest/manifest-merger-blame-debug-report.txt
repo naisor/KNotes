@@ -53,228 +53,227 @@
 36-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:15:9-51
 37        android:supportsRtl="true"
 37-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:17:9-35
-38        android:testOnly="true"
-39        android:theme="@style/Theme.KNotes" >
-39-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:18:9-44
-40        <activity
-40-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:66:9-69:47
-41            android:name="com.knotes.app.MainActivity"
-41-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:67:13-41
-42            android:exported="true"
-42-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:68:13-36
-43            android:launchMode="singleTask" /> <!-- Ícono del lanzador: hombre (cuaderno negro con azul) -->
-43-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:69:13-44
-44        <activity-alias
-44-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:52:9-64:26
-45            android:name="com.knotes.app.ManLauncher"
-45-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:53:13-40
-46            android:enabled="false"
-46-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:54:13-36
-47            android:exported="true"
-47-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:55:13-36
-48            android:icon="@mipmap/ic_launcher_m"
-48-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:56:13-49
-49            android:label="@string/app_name"
-49-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:59:13-45
-50            android:roundIcon="@mipmap/ic_launcher_m"
-50-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:57:13-54
-51            android:targetActivity="com.knotes.app.MainActivity" >
-51-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:58:13-51
-52            <intent-filter>
-52-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:30:13-33:29
-53                <action android:name="android.intent.action.MAIN" />
-53-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:17-69
-53-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:25-66
-54
-55                <category android:name="android.intent.category.LAUNCHER" />
-55-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:17-77
-55-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:27-74
-56            </intent-filter>
-57        </activity-alias> <!-- Ícono del lanzador: mujer (cuaderno rosa) — Managed por Gender.syncLauncher -->
-58        <activity-alias
-58-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:37:9-49:26
-59            android:name="com.knotes.app.WomanLauncher"
-59-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:38:13-42
-60            android:enabled="false"
-60-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:39:13-36
-61            android:exported="true"
-61-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:40:13-36
-62            android:icon="@mipmap/ic_launcher_w"
-62-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:41:13-49
-63            android:label="@string/app_name"
-63-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:44:13-45
-64            android:roundIcon="@mipmap/ic_launcher_w"
-64-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:42:13-54
-65            android:targetActivity="com.knotes.app.MainActivity" >
-65-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:43:13-51
-66            <intent-filter>
-66-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:30:13-33:29
-67                <action android:name="android.intent.action.MAIN" />
-67-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:17-69
-67-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:25-66
-68
-69                <category android:name="android.intent.category.LAUNCHER" />
-69-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:17-77
-69-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:27-74
-70            </intent-filter>
-71        </activity-alias>
-72        <!--
-73 Ícono del lanzador: BLANCO Y NEGRO por defecto (sin elegir sexo) —
-74             al definir el sexo, Gender.syncLauncher lo cambia a rosa o celeste
-75        -->
-76        <activity-alias
-76-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:22:9-34:26
-77            android:name="com.knotes.app.NeutralLauncher"
-77-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:23:13-44
-78            android:enabled="true"
-78-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:24:13-35
-79            android:exported="true"
-79-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:25:13-36
-80            android:icon="@mipmap/ic_launcher_bw"
-80-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:26:13-50
-81            android:label="@string/app_name"
-81-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:29:13-45
-82            android:roundIcon="@mipmap/ic_launcher_bw"
-82-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:27:13-55
-83            android:targetActivity="com.knotes.app.MainActivity" >
-83-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:28:13-51
-84            <intent-filter>
-84-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:30:13-33:29
-85                <action android:name="android.intent.action.MAIN" />
-85-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:17-69
-85-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:25-66
-86
-87                <category android:name="android.intent.category.LAUNCHER" />
-87-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:17-77
-87-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:27-74
-88            </intent-filter>
-89        </activity-alias>
-90
-91        <activity
-91-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:71:9-74:58
-92            android:name="com.knotes.app.CreateDiaryActivity"
-92-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:72:13-48
-93            android:exported="false"
-93-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:73:13-37
-94            android:windowSoftInputMode="adjustResize" />
-94-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:74:13-55
-95        <activity
-95-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:76:9-80:58
-96            android:name="com.knotes.app.EditorActivity"
-96-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:77:13-43
-97            android:exported="false"
-97-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:78:13-37
-98            android:screenOrientation="userPortrait"
-98-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:79:13-53
-99            android:windowSoftInputMode="adjustResize" />
-99-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:80:13-55
-100
-101        <!-- Widget del escritorio (menú ⋮ → Añadir widget explica cómo ponerlo) -->
-102        <receiver
-102-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:83:9-93:20
-103            android:name="com.knotes.app.KNotesWidgetProvider"
-103-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:84:13-49
-104            android:exported="false"
-104-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:85:13-37
-105            android:label="KNotes" >
-105-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:86:13-35
-106            <intent-filter>
-106-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:87:13-89:29
-107                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-107-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:88:17-84
-107-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:88:25-81
-108            </intent-filter>
-109
-110            <meta-data
-110-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:90:13-92:55
-111                android:name="android.appwidget.provider"
-111-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:91:17-58
-112                android:resource="@xml/widget_info" />
-112-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:92:17-52
-113        </receiver>
-114
-115        <!-- Compartir diarios (pdf/png/jpg/txt) desde la caché de la app -->
-116        <provider
-117            android:name="androidx.core.content.FileProvider"
-117-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:97:13-62
-118            android:authorities="com.knotes.app.files"
-118-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:98:13-57
-119            android:exported="false"
-119-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:99:13-37
-120            android:grantUriPermissions="true" >
-120-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:100:13-47
-121            <meta-data
-121-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:101:13-103:54
-122                android:name="android.support.FILE_PROVIDER_PATHS"
-122-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:102:17-67
-123                android:resource="@xml/file_paths" />
-123-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:103:17-51
-124        </provider>
-125        <provider
-125-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
-126            android:name="androidx.startup.InitializationProvider"
-126-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
-127            android:authorities="com.knotes.app.androidx-startup"
-127-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
-128            android:exported="false" >
-128-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
-129            <meta-data
-129-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
-130                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-130-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
-131                android:value="androidx.startup" />
-131-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
-132            <meta-data
-132-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/naisor/.gradle/caches/9.3.0/transforms/9ccfef625ed3c613984a948785a4dece/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
-133                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-133-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/naisor/.gradle/caches/9.3.0/transforms/9ccfef625ed3c613984a948785a4dece/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
-134                android:value="androidx.startup" />
-134-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/naisor/.gradle/caches/9.3.0/transforms/9ccfef625ed3c613984a948785a4dece/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
-135            <meta-data
-135-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
-136                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-136-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
-137                android:value="androidx.startup" />
-137-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
-138        </provider>
-139
-140        <receiver
-140-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
-141            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-141-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
-142            android:directBootAware="false"
-142-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
-143            android:enabled="true"
-143-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
-144            android:exported="true"
-144-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
-145            android:permission="android.permission.DUMP" >
-145-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
-146            <intent-filter>
-146-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
-147                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-147-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
-147-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
-148            </intent-filter>
-149            <intent-filter>
-149-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
-150                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-150-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
-150-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
-151            </intent-filter>
-152            <intent-filter>
-152-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
-153                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-153-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
-153-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
-154            </intent-filter>
-155            <intent-filter>
-155-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
-156                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-156-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
-156-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
-157            </intent-filter>
-158        </receiver>
-159    </application>
-160
-161</manifest>
+38        android:theme="@style/Theme.KNotes" >
+38-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:18:9-44
+39        <activity
+39-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:66:9-69:47
+40            android:name="com.knotes.app.MainActivity"
+40-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:67:13-41
+41            android:exported="true"
+41-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:68:13-36
+42            android:launchMode="singleTask" /> <!-- Ícono del lanzador: hombre (cuaderno negro con azul) -->
+42-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:69:13-44
+43        <activity-alias
+43-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:52:9-64:26
+44            android:name="com.knotes.app.ManLauncher"
+44-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:53:13-40
+45            android:enabled="false"
+45-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:54:13-36
+46            android:exported="true"
+46-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:55:13-36
+47            android:icon="@mipmap/ic_launcher_m"
+47-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:56:13-49
+48            android:label="@string/app_name"
+48-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:59:13-45
+49            android:roundIcon="@mipmap/ic_launcher_m"
+49-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:57:13-54
+50            android:targetActivity="com.knotes.app.MainActivity" >
+50-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:58:13-51
+51            <intent-filter>
+51-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:30:13-33:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:17-69
+52-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:17-77
+54-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:27-74
+55            </intent-filter>
+56        </activity-alias> <!-- Ícono del lanzador: mujer (cuaderno rosa) — Managed por Gender.syncLauncher -->
+57        <activity-alias
+57-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:37:9-49:26
+58            android:name="com.knotes.app.WomanLauncher"
+58-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:38:13-42
+59            android:enabled="false"
+59-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:39:13-36
+60            android:exported="true"
+60-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:40:13-36
+61            android:icon="@mipmap/ic_launcher_w"
+61-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:41:13-49
+62            android:label="@string/app_name"
+62-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:44:13-45
+63            android:roundIcon="@mipmap/ic_launcher_w"
+63-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:42:13-54
+64            android:targetActivity="com.knotes.app.MainActivity" >
+64-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:43:13-51
+65            <intent-filter>
+65-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:30:13-33:29
+66                <action android:name="android.intent.action.MAIN" />
+66-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:17-69
+66-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:25-66
+67
+68                <category android:name="android.intent.category.LAUNCHER" />
+68-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:17-77
+68-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:27-74
+69            </intent-filter>
+70        </activity-alias>
+71        <!--
+72 Ícono del lanzador: BLANCO Y NEGRO por defecto (sin elegir sexo) —
+73             al definir el sexo, Gender.syncLauncher lo cambia a rosa o celeste
+74        -->
+75        <activity-alias
+75-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:22:9-34:26
+76            android:name="com.knotes.app.NeutralLauncher"
+76-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:23:13-44
+77            android:enabled="true"
+77-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:24:13-35
+78            android:exported="true"
+78-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:25:13-36
+79            android:icon="@mipmap/ic_launcher_bw"
+79-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:26:13-50
+80            android:label="@string/app_name"
+80-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:29:13-45
+81            android:roundIcon="@mipmap/ic_launcher_bw"
+81-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:27:13-55
+82            android:targetActivity="com.knotes.app.MainActivity" >
+82-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:28:13-51
+83            <intent-filter>
+83-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:30:13-33:29
+84                <action android:name="android.intent.action.MAIN" />
+84-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:17-69
+84-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:31:25-66
+85
+86                <category android:name="android.intent.category.LAUNCHER" />
+86-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:17-77
+86-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:32:27-74
+87            </intent-filter>
+88        </activity-alias>
+89
+90        <activity
+90-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:71:9-74:58
+91            android:name="com.knotes.app.CreateDiaryActivity"
+91-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:72:13-48
+92            android:exported="false"
+92-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:73:13-37
+93            android:windowSoftInputMode="adjustResize" />
+93-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:74:13-55
+94        <activity
+94-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:76:9-80:58
+95            android:name="com.knotes.app.EditorActivity"
+95-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:77:13-43
+96            android:exported="false"
+96-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:78:13-37
+97            android:screenOrientation="userPortrait"
+97-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:79:13-53
+98            android:windowSoftInputMode="adjustResize" />
+98-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:80:13-55
+99
+100        <!-- Widget del escritorio (menú ⋮ → Añadir widget explica cómo ponerlo) -->
+101        <receiver
+101-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:83:9-93:20
+102            android:name="com.knotes.app.KNotesWidgetProvider"
+102-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:84:13-49
+103            android:exported="false"
+103-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:85:13-37
+104            android:label="KNotes" >
+104-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:86:13-35
+105            <intent-filter>
+105-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:87:13-89:29
+106                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+106-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:88:17-84
+106-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:88:25-81
+107            </intent-filter>
+108
+109            <meta-data
+109-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:90:13-92:55
+110                android:name="android.appwidget.provider"
+110-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:91:17-58
+111                android:resource="@xml/widget_info" />
+111-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:92:17-52
+112        </receiver>
+113
+114        <!-- Compartir diarios (pdf/png/jpg/txt) desde la caché de la app -->
+115        <provider
+116            android:name="androidx.core.content.FileProvider"
+116-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:97:13-62
+117            android:authorities="com.knotes.app.files"
+117-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:98:13-57
+118            android:exported="false"
+118-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:99:13-37
+119            android:grantUriPermissions="true" >
+119-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:100:13-47
+120            <meta-data
+120-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:101:13-103:54
+121                android:name="android.support.FILE_PROVIDER_PATHS"
+121-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:102:17-67
+122                android:resource="@xml/file_paths" />
+122-->/Users/naisor/AndroidStudioProjects/KNotes/app/src/main/AndroidManifest.xml:103:17-51
+123        </provider>
+124        <provider
+124-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+125            android:name="androidx.startup.InitializationProvider"
+125-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+126            android:authorities="com.knotes.app.androidx-startup"
+126-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+127            android:exported="false" >
+127-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+128            <meta-data
+128-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+129                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+129-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+130                android:value="androidx.startup" />
+130-->[androidx.emoji2:emoji2:1.3.0] /Users/naisor/.gradle/caches/9.3.0/transforms/23778310937bd7aeeb9700a13e557426/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+131            <meta-data
+131-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/naisor/.gradle/caches/9.3.0/transforms/9ccfef625ed3c613984a948785a4dece/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+132                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+132-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/naisor/.gradle/caches/9.3.0/transforms/9ccfef625ed3c613984a948785a4dece/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+133                android:value="androidx.startup" />
+133-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/naisor/.gradle/caches/9.3.0/transforms/9ccfef625ed3c613984a948785a4dece/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+134            <meta-data
+134-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+135                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+135-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+136                android:value="androidx.startup" />
+136-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+137        </provider>
+138
+139        <receiver
+139-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+140            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+140-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+141            android:directBootAware="false"
+141-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+142            android:enabled="true"
+142-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+143            android:exported="true"
+143-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+144            android:permission="android.permission.DUMP" >
+144-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+145            <intent-filter>
+145-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+146                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+146-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+146-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+147            </intent-filter>
+148            <intent-filter>
+148-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+149                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+149-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+149-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+150            </intent-filter>
+151            <intent-filter>
+151-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+152                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+152-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+152-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+153            </intent-filter>
+154            <intent-filter>
+154-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+155                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+155-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+155-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/naisor/.gradle/caches/9.3.0/transforms/2c3914cd1e6f2d6104d16468a44eb6ea/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+156            </intent-filter>
+157        </receiver>
+158    </application>
+159
+160</manifest>

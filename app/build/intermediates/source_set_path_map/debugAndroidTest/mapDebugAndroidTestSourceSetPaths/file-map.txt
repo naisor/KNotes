@@ -1,0 +1,4 @@
+com.knotes.app.test.app-androidTest-0 /Users/naisor/AndroidStudioProjects/KNotes/app/build/generated/res/resValues/androidTest/debug
+com.knotes.app.test.app-mergeDebugAndroidTestResources-1 /Users/naisor/AndroidStudioProjects/KNotes/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.knotes.app.test.app-mergeDebugAndroidTestResources-2 /Users/naisor/AndroidStudioProjects/KNotes/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.knotes.app.test.app-debugAndroidTest-3 /Users/naisor/AndroidStudioProjects/KNotes/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources
