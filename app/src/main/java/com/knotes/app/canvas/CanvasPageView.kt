@@ -954,8 +954,8 @@ class CanvasPageView @JvmOverloads constructor(
 
     /** grosor BASE del trazo según el modo de lápiz elegido */
     private fun baseWidthOf(t: Int): Float = when (t) {
-        Tools.PEN -> penWidth * 0.8f          // bolígrafo: fino y preciso
-        Tools.MARKER -> penWidth * 2.0f       // marcador: trazo firme y más grueso
+        Tools.PEN -> penWidth * 0.8f          // bolígrafo/plumilla: grosor máximo; la presión/velocidad lo reducen
+        Tools.MARKER -> penWidth * 1.2f       // marcador/plumilla: firme
         Tools.PENCIL -> penWidth * 0.9f       // lápiz: gris con grano
         Tools.HIGHLIGHTER -> penWidth * 1.0f  // subrayar: línea fina saturada
         Tools.DOTTED -> penWidth * 1.5f
@@ -1004,7 +1004,7 @@ class CanvasPageView @JvmOverloads constructor(
                     // ESTABILIZADOR: la punta sigue al lápiz con una pizca de inercia → curvas redondas y
                     // elegantes (sin temblor de mano). El lápiz-grafito y los puntitos van crudos.
                     val smoothBrush = s.brush != Brush.PENCIL && s.brush != Brush.DOTTED && s.points.size >= 2
-                    val bp = if (smoothBrush) Pt(last.x + (p.x - last.x) * 0.58f, last.y + (p.y - last.y) * 0.58f) else p
+                    val bp = if (smoothBrush) Pt(last.x + (p.x - last.x) * 0.72f, last.y + (p.y - last.y) * 0.72f) else p
                     val q = jitter(bp, s.width)
                     // PRESIÓN: el lápiz digital (hasta 4096 niveles) manda el grosor del trazo;
                     // un toque fuerte se marca GRANDE, un roce suave se queda en línea delgada
@@ -1424,13 +1424,20 @@ class CanvasPageView @JvmOverloads constructor(
         val live = (s === liveStroke)
         if (!live) s.pathCache?.let { return it }
         val pth = Path()
-        if (s.points.isNotEmpty()) {
+        val n = s.points.size
+        if (n == 1) {
             val p0 = s.points[0]
-            pth.moveTo(p0.x, p0.y)
-            for (i in 1 until s.points.size) {
-                val pm = s.points[i - 1]; val pi = s.points[i]
-                pth.quadTo(pm.x, pm.y, (pm.x + pi.x) / 2f, (pm.y + pi.y) / 2f)
+            pth.moveTo(p0.x, p0.y); pth.lineTo(p0.x + 0.01f, p0.y)      // un toque = un PUNTO (cap redondo)
+        } else if (n == 2) {
+            pth.moveTo(s.points[0].x, s.points[0].y); pth.lineTo(s.points[1].x, s.points[1].y)
+        } else if (n > 2) {
+            // curvas cuadráticas: cada punto es el CONTROL y el trazo pasa por los puntos medios
+            pth.moveTo(s.points[0].x, s.points[0].y)
+            for (i in 1 until n - 1) {
+                val pi = s.points[i]; val nx = s.points[i + 1]
+                pth.quadTo(pi.x, pi.y, (pi.x + nx.x) / 2f, (pi.y + nx.y) / 2f)
             }
+            pth.lineTo(s.points[n - 1].x, s.points[n - 1].y)
         }
         if (!live) s.pathCache = pth
         return pth
@@ -1456,9 +1463,9 @@ class CanvasPageView @JvmOverloads constructor(
      * pinta como segmentos de punta redonda cuyo grosor sigue la presión (más afilada al empezar y
      * al soltar). No hay contornos que se crucen, así que no aparecen «sombras» ni huecos.
      */
-    fun varLine(s: Stroke, factor: Float, minR: Float): VarLine {
+    fun varLine(s: Stroke, factor: Float, minR: Float, curve: Boolean = false): VarLine {
         val live = (s === liveStroke)
-        val key = (factor * 100).toInt() * 1000 + (minR * 100).toInt()
+        val key = (factor * 100).toInt() * 1000 + (minR * 100).toInt() + (if (curve) 50_000_000 else 0)
         if (!live) (s.ribbonCache?.get(key) as? VarLine)?.let { return it }
         val pts = s.points
         val n = pts.size
@@ -1473,7 +1480,7 @@ class CanvasPageView @JvmOverloads constructor(
         for (i in 1 until n) {
             val b = pts[i]
             // velocidad ≈ separación entre toques: rápido = más fino (como una pluma de verdad)
-            curSpd = (hypot((b.x - pts[i - 1].x).toDouble(), (b.y - pts[i - 1].y).toDouble()).toFloat() - 2.5f).div(14f).coerceIn(0f, 1f)
+            curSpd = (hypot((b.x - pts[i - 1].x).toDouble(), (b.y - pts[i - 1].y).toDouble()).toFloat() - 2.0f).div(18f).coerceIn(0f, 1f)
             val ex: Float; val ey: Float; val ep: Float
             if (i < n - 1) {
                 val nx = pts[i + 1]
@@ -1499,7 +1506,38 @@ class CanvasPageView @JvmOverloads constructor(
         val inR = 8f + base * 2.0f
         val outR = 16f + base * 3.5f
         val w = FloatArray(m)
+        // CURVATURA: en las curvas la tinta se AFINA y en los tramos rectos vuelve a su grosor normal
+        val curvF = FloatArray(m) { 1f }
+        if (curve && m >= 5) {
+            val k = 4
+            for (j in 0 until m) {
+                val a = (j - k).coerceAtLeast(0); val b = (j + k).coerceAtMost(m - 1)
+                if (a == j || b == j) continue
+                val v1x = xs[j] - xs[a]; val v1y = ys[j] - ys[a]
+                val v2x = xs[b] - xs[j]; val v2y = ys[b] - ys[j]
+                val l1 = hypot(v1x.toDouble(), v1y.toDouble()).toFloat(); val l2 = hypot(v2x.toDouble(), v2y.toDouble()).toFloat()
+                if (l1 < 0.3f || l2 < 0.3f) continue
+                val ang = abs(Math.atan2((v1x * v2y - v1y * v2x).toDouble(), (v1x * v2x + v1y * v2y).toDouble())).toFloat()
+                val kappa = ang / maxOf(l1 + l2, 1f)                 // rad por unidad de papel
+                val t = (kappa / 0.07f).coerceIn(0f, 1f)
+                curvF[j] = 1f - 0.25f * t                     // curva muy cerrada → algo más fina
+            }
+        }
         for (j in 0 until m) {
+            if (curve) {
+                // PLUMILLA con DINÁMICA REAL (como la app de referencia):
+                //  · con lápiz digital: la PRESIÓN manda (rozar = hilo fino, apretar = trazo grueso)
+                //  · rápido = más fino, lento = más grueso (los latigazos largos salen delgados)
+                //  · con el dedo (sin presión) solo actúa la velocidad
+                val pr = prs[j].coerceIn(0.03f, 1f)
+                var wj = if (pressured) base * (0.22f + 1.5f * pr.pow(0.9f)) * (1f - 0.3f * spd[j])
+                         else base * 1.1f * (1f - 0.62f * spd[j].pow(0.8f))
+                wj *= curvF[j]
+                val fin = 0.55f + 0.45f * (cum[j] / inR).coerceIn(0f, 1f)
+                val fout = 0.3f + 0.7f * ((total - cum[j]) / outR).coerceIn(0f, 1f)
+                w[j] = (wj * fin * fout).coerceAtLeast(0.9f)
+                continue
+            }
             val pr = prs[j].coerceIn(0.04f, 1f)
             var wj = if (pressured) base * 1.55f * (minR + (1f - minR) * pr) else base * 1.05f
             wj *= (1f - 0.32f * spd[j])                                        // más veloz → más fina
@@ -1512,14 +1550,15 @@ class CanvasPageView @JvmOverloads constructor(
         for (pass in 0 until 2) {
             for (j in 0 until m) {
                 var sum = 0f; var cnt = 0
-                for (k in -3..3) { val q = j + k; if (q in 0 until m) { sum += w[q]; cnt++ } }
+                val rad = if (curve) 5 else 3
+                for (k in -rad..rad) { val q = j + k; if (q in 0 until m) { sum += w[q]; cnt++ } }
                 tmp[j] = sum / cnt
             }
             for (j in 0 until m) w[j] = tmp[j]
         }
         var wMin = Float.MAX_VALUE; var wMax = 0f
         for (j in 0 until m) { if (w[j] < wMin) wMin = w[j]; if (w[j] > wMax) wMax = w[j] }
-        val nb = if (wMax - wMin < 0.2f) 1 else 18
+        val nb = if (wMax - wMin < 0.2f) 1 else 24
         val widths = FloatArray(nb) { if (nb == 1) wMax else wMin + it * (wMax - wMin) / (nb - 1) }
         val lists = Array(nb) { ArrayList<Float>() }
         var l = Float.MAX_VALUE; var t = Float.MAX_VALUE; var r = -Float.MAX_VALUE; var bt = -Float.MAX_VALUE
@@ -1902,7 +1941,7 @@ class CanvasPageView @JvmOverloads constructor(
     /** cuerpo del trazo: a grosor constante (dedo) o CINTA de grosor variable (lápiz digital) */
     private fun drawBody(c: Canvas, s: Stroke, factor: Float, minR: Float, color: Int, alpha: Int,
                          ds: Float, minPx: Float, cap: Paint.Cap = Paint.Cap.ROUND) {
-        if (hasPressure(s) || s.brush == Brush.PEN || s.brush == Brush.HIGHLIGHTER) {
+        if (hasPressure(s)) {
             val vl = varLine(s, factor, minR)
             val layer = alpha < 255
             // translúcido = UNA capa con alfa (los segmentos solapados no se oscurecen entre sí)
@@ -1960,15 +1999,40 @@ class CanvasPageView @JvmOverloads constructor(
         strokePaint.alpha = 255
     }
 
+    /**
+     * PLUMILLA / BOLÍGRAFO de punta fina: tinta de flujo constante.
+     * Trazo SÓLIDO, opacidad 100 %, grosor FIJO, extremos y uniones REDONDOS, sin textura ni sombra,
+     * curvas cuadráticas (quadTo) antialias + dither → línea limpia y continua.
+     */
+    private fun drawInk(c: Canvas, s: Stroke, ds: Float) {
+        val vl = varLine(s, 1f, 1f, true)
+        strokePaint.style = Paint.Style.STROKE
+        strokePaint.color = s.color
+        strokePaint.alpha = 255
+        strokePaint.strokeCap = Paint.Cap.ROUND
+        strokePaint.strokeJoin = Paint.Join.ROUND
+        strokePaint.pathEffect = null
+        strokePaint.maskFilter = null
+        strokePaint.shader = null
+        for (bi in vl.widths.indices) {
+            val arr = vl.segs[bi]
+            if (arr.isEmpty()) continue
+            strokePaint.strokeWidth = max(1f, vl.widths[bi] * ds)
+            c.drawLines(arr, 0, arr.size, strokePaint)
+        }
+    }
+
     private fun shade(color: Int, f: Float): Int {
         val r = ((color shr 16) and 0xFF) * f; val g = ((color shr 8) and 0xFF) * f; val b = (color and 0xFF) * f
         return (0xFF shl 24) or (r.toInt().coerceIn(0, 255) shl 16) or (g.toInt().coerceIn(0, 255) shl 8) or b.toInt().coerceIn(0, 255)
     }
 
     private fun drawStroke(c: Canvas, s: Stroke, ds: Float = 1f) {
-        strokePaint.isDither = false
+        strokePaint.isAntiAlias = true
+        strokePaint.isDither = true
         strokePaint.style = Paint.Style.STROKE
         when (s.brush) {
+            Brush.PEN, Brush.MARKER -> drawInk(c, s, ds)
             Brush.HILITER -> {
                 // RESALTADOR: banda ancha translúcida de punta cuadrada (lima en la captura)
                 drawBody(c, s, 1f, 0.6f, s.color, 150, ds, 4f, Paint.Cap.SQUARE)
@@ -1977,10 +2041,6 @@ class CanvasPageView @JvmOverloads constructor(
                 // SUBRAYAR: línea fina y saturada con un halo suave debajo
                 drawBody(c, s, 2.2f, 0.5f, s.color, 60, ds, 4f)
                 drawBody(c, s, 1f, 0.5f, s.color, 225, ds, 2f)
-            }
-            Brush.MARKER -> {
-                // MARCADOR: trazo firme y lleno
-                drawBody(c, s, 1f, 0.55f, s.color, 238, ds, 2.6f)
             }
             Brush.PENCIL -> {
                 // LÁPIZ: mina grisácea + grano de grafito

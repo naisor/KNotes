@@ -31,6 +31,16 @@ así que al reabrir el diario puedes:
 - Mercados y Descubrir con plantillas listas para crear diarios (planners semanales, mensuales, habit tracker… con sticker packs de recuerdos en el editor) funcionando los botones «Usarlo».
 - **Se ve bien en móvil y tablet:** rejilla adaptativa (2–4 columnas según ancho), portadas grandes en los diálogos con scroll, y `fitsSystemWindows` para no quedar debajo de la barra del sistema.
 
+### Novedades v1.9.3 — tinta con dinámica real
+- ✒️ La plumilla reproduce el trazo de la app de referencia: **presión del lápiz** (rozar = hilo fino, apretar = grueso, rango ≈ 1:4) y **velocidad** (rápido = fino, lento = grueso); con el dedo actúa solo la velocidad. Extremos redondeados y salida afilada.
+
+### Novedades v1.9.2 — tinta que se afina en las curvas
+- ✒️ La plumilla (Bolígrafo/Marcador) ahora **se adelgaza en las curvas y recupera su grosor normal en los tramos rectos**, calculado por la curvatura real del trazo (sin depender de la presión).
+
+### Novedades v1.9.1 — plumilla de tinta
+- ✒️ **Bolígrafo y Marcador = plumilla de tinta**: trazo sólido, opacidad 100 %, **grosor fijo** (punta media-fina ≈ 0.5–0.7 mm), extremos y uniones **redondos**, antialias + dither, sin textura ni sombra.
+- 〰️ Curvas con **`quadTo`** (puntos medios) en vez de líneas rectas; el trazo termina exactamente donde levantas el lápiz y un toque suelto deja un punto.
+
 ### Novedades v1.9.0
 - 🛠 **Barra superior del editor**: fila 1 = ← · nombre del diario · deshacer/rehacer · **⋮ Configuración** (botón aparte); fila 2 = **herramientas** (cursor, lazo, pluma, goma, texto, formas, regla, imagen, enlace, stickers) + **guardar**.
 - 📄 **Exportar solo el papel**: el PDF ya no lleva fondo crema, márgenes ni «KNotes · pág. 1/1»: cada hoja es el papel a sangre completa con su contenido. Igual en PNG/JPG y en **Word (.docx)**, que ahora lleva una imagen del papel por página.

@@ -32,7 +32,7 @@
         <item name="android:textColorPrimary">#2B2630</item>
         <item name="android:textColorSecondary">#5F5A52</item>
         <item name="textColorAlertDialogListItem">#2B2630</item>
-    </style><style name="Overlay.KNotes.Man" parent="Overlay.KNotes">
+    </style><style name="Overlay.KNotes.Man">
         <item name="kAccent">#8FD3FF</item>
         <item name="kAccentDeep">#4DB4F0</item>
         <item name="kAccentTrans">#998FD3FF</item>

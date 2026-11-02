@@ -34,10 +34,10 @@
         <item name="textColorAlertDialogListItem">#2B2630</item>
     </style>
 
-    <!-- MODO HOMBRE: se aplica ENCIMA del tema → todo el acento pasa de rosa a CELESTE -->
     <style name="Overlay.KNotes" parent="" />
 
-    <style name="Overlay.KNotes.Man" parent="Overlay.KNotes">
+    <!-- MODO HOMBRE: se aplica ENCIMA del tema → todo el acento pasa de rosa a CELESTE -->
+    <style name="Overlay.KNotes.Man">
         <item name="kAccent">#8FD3FF</item>
         <item name="kAccentDeep">#4DB4F0</item>
         <item name="kAccentTrans">#998FD3FF</item>
